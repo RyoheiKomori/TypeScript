@@ -1,8 +1,9 @@
+import { FC } from "react";
 import { TodoType } from "./types/todo";
 
-export const Todo = (
-  //Omit<TodoType, "id"の方がシンプル
-  props: Pick<TodoType, "userId" | "title" | "completed">
+//Omit<TodoType, "id"は、"id"を省きその他の情報を取得する
+export const Todo: FC<Pick<TodoType, "userId" | "title" | "completed">> = (
+  props
 ) => {
   const { title, userId, completed = false } = props;
   const completeMark = completed ? "[完]" : "[未]";
